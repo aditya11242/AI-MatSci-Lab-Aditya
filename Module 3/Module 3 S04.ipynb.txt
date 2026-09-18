@@ -1,0 +1,125 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "07307da2-82db-46ca-b749-596a6575468a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['avg_Number', 'avg_MendeleevNumber', 'avg_AtomicWeight', 'avg_MeltingT', 'avg_Column', 'avg_Row', 'avg_CovalentRadius', 'avg_Electronegativity', 'avg_NsValence', 'avg_NpValence', 'avg_NdValence', 'avg_NfValence', 'avg_NValence', 'avg_NsUnfilled', 'avg_NpUnfilled', 'avg_NdUnfilled', 'avg_NfUnfilled', 'avg_NUnfilled', 'avg_GSvolume_pa', 'avg_GSbandgap', 'avg_GSmagmom', 'avg_SpaceGroupNumber', 'dev_Number', 'dev_MendeleevNumber', 'dev_AtomicWeight', 'dev_MeltingT', 'dev_Column', 'dev_Row', 'dev_CovalentRadius', 'dev_Electronegativity', 'dev_NsValence', 'dev_NpValence', 'dev_NdValence', 'dev_NfValence', 'dev_NValence', 'dev_NsUnfilled', 'dev_NpUnfilled', 'dev_NdUnfilled', 'dev_NfUnfilled', 'dev_NUnfilled', 'dev_GSvolume_pa', 'dev_GSbandgap', 'dev_GSmagmom', 'dev_SpaceGroupNumber', 'range_Number', 'range_MendeleevNumber', 'range_AtomicWeight', 'range_MeltingT', 'range_Column', 'range_Row', 'range_CovalentRadius', 'range_Electronegativity', 'range_NsValence', 'range_NpValence', 'range_NdValence', 'range_NfValence', 'range_NValence', 'range_NsUnfilled', 'range_NpUnfilled', 'range_NdUnfilled', 'range_NfUnfilled', 'range_NUnfilled', 'range_GSvolume_pa', 'range_GSbandgap', 'range_GSmagmom', 'range_SpaceGroupNumber', 'max_Number', 'max_MendeleevNumber', 'max_AtomicWeight', 'max_MeltingT', 'max_Column', 'max_Row', 'max_CovalentRadius', 'max_Electronegativity', 'max_NsValence', 'max_NpValence', 'max_NdValence', 'max_NfValence', 'max_NValence', 'max_NsUnfilled', 'max_NpUnfilled', 'max_NdUnfilled', 'max_NfUnfilled', 'max_NUnfilled', 'max_GSvolume_pa', 'max_GSbandgap', 'max_GSmagmom', 'max_SpaceGroupNumber', 'min_Number', 'min_MendeleevNumber', 'min_AtomicWeight', 'min_MeltingT', 'min_Column', 'min_Row', 'min_CovalentRadius', 'min_Electronegativity', 'min_NsValence', 'min_NpValence', 'min_NdValence', 'min_NfValence', 'min_NValence', 'min_NsUnfilled', 'min_NpUnfilled', 'min_NdUnfilled', 'min_NfUnfilled', 'min_NUnfilled', 'min_GSvolume_pa', 'min_GSbandgap', 'min_GSmagmom', 'min_SpaceGroupNumber', 'mode_Number', 'mode_MendeleevNumber', 'mode_AtomicWeight', 'mode_MeltingT', 'mode_Column', 'mode_Row', 'mode_CovalentRadius', 'mode_Electronegativity', 'mode_NsValence', 'mode_NpValence', 'mode_NdValence', 'mode_NfValence', 'mode_NValence', 'mode_NsUnfilled', 'mode_NpUnfilled', 'mode_NdUnfilled', 'mode_NfUnfilled', 'mode_NUnfilled', 'mode_GSvolume_pa', 'mode_GSbandgap', 'mode_GSmagmom', 'mode_SpaceGroupNumber', 'T']\n",
+      "   avg_Number  avg_MendeleevNumber  avg_AtomicWeight  avg_MeltingT  \\\n",
+      "0         6.8                 81.0          13.92404        972.08   \n",
+      "1         6.8                 81.0          13.92404        972.08   \n",
+      "2         6.8                 81.0          13.92404        972.08   \n",
+      "3         6.8                 81.0          13.92404        972.08   \n",
+      "4         6.8                 81.0          13.92404        972.08   \n",
+      "\n",
+      "   avg_Column  avg_Row  avg_CovalentRadius  avg_Electronegativity  \\\n",
+      "0        14.8      2.0                73.2                   2.88   \n",
+      "1        14.8      2.0                73.2                   2.88   \n",
+      "2        14.8      2.0                73.2                   2.88   \n",
+      "3        14.8      2.0                73.2                   2.88   \n",
+      "4        14.8      2.0                73.2                   2.88   \n",
+      "\n",
+      "   avg_NsValence  avg_NpValence  ...  mode_NsUnfilled  mode_NpUnfilled  \\\n",
+      "0            2.0            2.8  ...              0.0              2.0   \n",
+      "1            2.0            2.8  ...              0.0              2.0   \n",
+      "2            2.0            2.8  ...              0.0              2.0   \n",
+      "3            2.0            2.8  ...              0.0              2.0   \n",
+      "4            2.0            2.8  ...              0.0              2.0   \n",
+      "\n",
+      "   mode_NdUnfilled  mode_NfUnfilled  mode_NUnfilled  mode_GSvolume_pa  \\\n",
+      "0              0.0              0.0             2.0             9.105   \n",
+      "1              0.0              0.0             2.0             9.105   \n",
+      "2              0.0              0.0             2.0             9.105   \n",
+      "3              0.0              0.0             2.0             9.105   \n",
+      "4              0.0              0.0             2.0             9.105   \n",
+      "\n",
+      "   mode_GSbandgap  mode_GSmagmom  mode_SpaceGroupNumber       T  \n",
+      "0             0.0            0.0                   12.0  1400.0  \n",
+      "1             0.0            0.0                   12.0  1300.0  \n",
+      "2             0.0            0.0                   12.0  1200.0  \n",
+      "3             0.0            0.0                   12.0  1100.0  \n",
+      "4             0.0            0.0                   12.0  1000.0  \n",
+      "\n",
+      "[5 rows x 133 columns]\n"
+     ]
+    }
+   ],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "0bcc1df4-ec82-415f-a316-bc1456b76ffe",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Processing Input Data:   0%|          | 0/4564 [00:00<?, ?it/s]\n"
+     ]
+    },
+    {
+     "ename": "KeyError",
+     "evalue": "'formula'",
+     "output_type": "error",
+     "traceback": [
+      "\u001b[31m---------------------------------------------------------------------------\u001b[39m",
+      "\u001b[31mKeyError\u001b[39m                                  Traceback (most recent call last)",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexes\\base.py:3812\u001b[39m, in \u001b[36mIndex.get_loc\u001b[39m\u001b[34m(self, key)\u001b[39m\n\u001b[32m   3811\u001b[39m \u001b[38;5;28;01mtry\u001b[39;00m:\n\u001b[32m-> \u001b[39m\u001b[32m3812\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28;43mself\u001b[39;49m\u001b[43m.\u001b[49m\u001b[43m_engine\u001b[49m\u001b[43m.\u001b[49m\u001b[43mget_loc\u001b[49m\u001b[43m(\u001b[49m\u001b[43mcasted_key\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   3813\u001b[39m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m \u001b[38;5;28;01mas\u001b[39;00m err:\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/index.pyx:167\u001b[39m, in \u001b[36mpandas._libs.index.IndexEngine.get_loc\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/index.pyx:196\u001b[39m, in \u001b[36mpandas._libs.index.IndexEngine.get_loc\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/hashtable_class_helper.pxi:7088\u001b[39m, in \u001b[36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32mpandas/_libs/hashtable_class_helper.pxi:7096\u001b[39m, in \u001b[36mpandas._libs.hashtable.PyObjectHashTable.get_item\u001b[39m\u001b[34m()\u001b[39m\n",
+      "\u001b[31mKeyError\u001b[39m: 'formula'",
+      "\nThe above exception was the direct cause of the following exception:\n",
+      "\u001b[31mKeyError\u001b[39m                                  Traceback (most recent call last)",
+      "\u001b[36mCell\u001b[39m\u001b[36m \u001b[39m\u001b[32mIn[12]\u001b[39m\u001b[32m, line 14\u001b[39m\n\u001b[32m      8\u001b[39m df = df.rename(columns={\n\u001b[32m      9\u001b[39m     \u001b[33m'\u001b[39m\u001b[33mcomposition\u001b[39m\u001b[33m'\u001b[39m: \u001b[33m'\u001b[39m\u001b[33mformula\u001b[39m\u001b[33m'\u001b[39m,\n\u001b[32m     10\u001b[39m     \u001b[33m'\u001b[39m\u001b[33mband_gap\u001b[39m\u001b[33m'\u001b[39m: \u001b[33m'\u001b[39m\u001b[33mtarget\u001b[39m\u001b[33m'\u001b[39m\n\u001b[32m     11\u001b[39m })\n\u001b[32m     13\u001b[39m \u001b[38;5;66;03m# Generate CBFV features\u001b[39;00m\n\u001b[32m---> \u001b[39m\u001b[32m14\u001b[39m df_features = \u001b[43mcomposition\u001b[49m\u001b[43m.\u001b[49m\u001b[43mgenerate_features\u001b[49m\u001b[43m(\u001b[49m\n\u001b[32m     15\u001b[39m \u001b[43m    \u001b[49m\u001b[43mdf\u001b[49m\u001b[43m,\u001b[49m\n\u001b[32m     16\u001b[39m \u001b[43m    \u001b[49m\u001b[43melem_prop\u001b[49m\u001b[43m=\u001b[49m\u001b[33;43m\"\u001b[39;49m\u001b[33;43mmagpie\u001b[39;49m\u001b[33;43m\"\u001b[39;49m\u001b[43m,\u001b[49m\n\u001b[32m     17\u001b[39m \u001b[43m    \u001b[49m\u001b[43mdrop_duplicates\u001b[49m\u001b[43m=\u001b[49m\u001b[38;5;28;43;01mFalse\u001b[39;49;00m\u001b[43m,\u001b[49m\n\u001b[32m     18\u001b[39m \u001b[43m    \u001b[49m\u001b[43msum_feat\u001b[49m\u001b[43m=\u001b[49m\u001b[38;5;28;43;01mFalse\u001b[39;49;00m\n\u001b[32m     19\u001b[39m \u001b[43m)\u001b[49m\n\u001b[32m     21\u001b[39m \u001b[38;5;28mprint\u001b[39m(df_features.head())\n\u001b[32m     22\u001b[39m \u001b[38;5;28mprint\u001b[39m(df_features.shape)\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\CBFV\\composition.py:280\u001b[39m, in \u001b[36mgenerate_features\u001b[39m\u001b[34m(df, elem_prop, drop_duplicates, extend_features, sum_feat, mini)\u001b[39m\n\u001b[32m    277\u001b[39m     extra_features = df[features]\n\u001b[32m    279\u001b[39m \u001b[38;5;28;01mfor\u001b[39;00m index \u001b[38;5;129;01min\u001b[39;00m tqdm.tqdm(df.index.values, desc=\u001b[33m'\u001b[39m\u001b[33mProcessing Input Data\u001b[39m\u001b[33m'\u001b[39m):\n\u001b[32m--> \u001b[39m\u001b[32m280\u001b[39m     formula, target = \u001b[43mdf\u001b[49m\u001b[43m.\u001b[49m\u001b[43mloc\u001b[49m\u001b[43m[\u001b[49m\u001b[43mindex\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[33;43m'\u001b[39;49m\u001b[33;43mformula\u001b[39;49m\u001b[33;43m'\u001b[39;49m\u001b[43m]\u001b[49m, df.loc[index, \u001b[33m'\u001b[39m\u001b[33mtarget\u001b[39m\u001b[33m'\u001b[39m]\n\u001b[32m    281\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[33m'\u001b[39m\u001b[33mx\u001b[39m\u001b[33m'\u001b[39m \u001b[38;5;129;01min\u001b[39;00m formula:\n\u001b[32m    282\u001b[39m         \u001b[38;5;28;01mcontinue\u001b[39;00m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexing.py:1184\u001b[39m, in \u001b[36m_LocationIndexer.__getitem__\u001b[39m\u001b[34m(self, key)\u001b[39m\n\u001b[32m   1182\u001b[39m     key = \u001b[38;5;28mtuple\u001b[39m(com.apply_if_callable(x, \u001b[38;5;28mself\u001b[39m.obj) \u001b[38;5;28;01mfor\u001b[39;00m x \u001b[38;5;129;01min\u001b[39;00m key)\n\u001b[32m   1183\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28mself\u001b[39m._is_scalar_access(key):\n\u001b[32m-> \u001b[39m\u001b[32m1184\u001b[39m         \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28;43mself\u001b[39;49m\u001b[43m.\u001b[49m\u001b[43mobj\u001b[49m\u001b[43m.\u001b[49m\u001b[43m_get_value\u001b[49m\u001b[43m(\u001b[49m\u001b[43m*\u001b[49m\u001b[43mkey\u001b[49m\u001b[43m,\u001b[49m\u001b[43m \u001b[49m\u001b[43mtakeable\u001b[49m\u001b[43m=\u001b[49m\u001b[38;5;28;43mself\u001b[39;49m\u001b[43m.\u001b[49m\u001b[43m_takeable\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   1185\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m \u001b[38;5;28mself\u001b[39m._getitem_tuple(key)\n\u001b[32m   1186\u001b[39m \u001b[38;5;28;01melse\u001b[39;00m:\n\u001b[32m   1187\u001b[39m     \u001b[38;5;66;03m# we by definition only have the 0th axis\u001b[39;00m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\frame.py:4225\u001b[39m, in \u001b[36mDataFrame._get_value\u001b[39m\u001b[34m(self, index, col, takeable)\u001b[39m\n\u001b[32m   4222\u001b[39m     series = \u001b[38;5;28mself\u001b[39m._ixs(col, axis=\u001b[32m1\u001b[39m)\n\u001b[32m   4223\u001b[39m     \u001b[38;5;28;01mreturn\u001b[39;00m series._values[index]\n\u001b[32m-> \u001b[39m\u001b[32m4225\u001b[39m series = \u001b[38;5;28;43mself\u001b[39;49m\u001b[43m.\u001b[49m\u001b[43m_get_item_cache\u001b[49m\u001b[43m(\u001b[49m\u001b[43mcol\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   4226\u001b[39m engine = \u001b[38;5;28mself\u001b[39m.index._engine\n\u001b[32m   4228\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;129;01mnot\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(\u001b[38;5;28mself\u001b[39m.index, MultiIndex):\n\u001b[32m   4229\u001b[39m     \u001b[38;5;66;03m# CategoricalIndex: Trying to use the engine fastpath may give incorrect\u001b[39;00m\n\u001b[32m   4230\u001b[39m     \u001b[38;5;66;03m#  results if our categories are integers that dont match our codes\u001b[39;00m\n\u001b[32m   4231\u001b[39m     \u001b[38;5;66;03m# IntervalIndex: IntervalTree has no get_loc\u001b[39;00m\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\frame.py:4649\u001b[39m, in \u001b[36mDataFrame._get_item_cache\u001b[39m\u001b[34m(self, item)\u001b[39m\n\u001b[32m   4644\u001b[39m res = cache.get(item)\n\u001b[32m   4645\u001b[39m \u001b[38;5;28;01mif\u001b[39;00m res \u001b[38;5;129;01mis\u001b[39;00m \u001b[38;5;28;01mNone\u001b[39;00m:\n\u001b[32m   4646\u001b[39m     \u001b[38;5;66;03m# All places that call _get_item_cache have unique columns,\u001b[39;00m\n\u001b[32m   4647\u001b[39m     \u001b[38;5;66;03m#  pending resolution of GH#33047\u001b[39;00m\n\u001b[32m-> \u001b[39m\u001b[32m4649\u001b[39m     loc = \u001b[38;5;28;43mself\u001b[39;49m\u001b[43m.\u001b[49m\u001b[43mcolumns\u001b[49m\u001b[43m.\u001b[49m\u001b[43mget_loc\u001b[49m\u001b[43m(\u001b[49m\u001b[43mitem\u001b[49m\u001b[43m)\u001b[49m\n\u001b[32m   4650\u001b[39m     res = \u001b[38;5;28mself\u001b[39m._ixs(loc, axis=\u001b[32m1\u001b[39m)\n\u001b[32m   4652\u001b[39m     cache[item] = res\n",
+      "\u001b[36mFile \u001b[39m\u001b[32m~\\anaconda3\\Lib\\site-packages\\pandas\\core\\indexes\\base.py:3819\u001b[39m, in \u001b[36mIndex.get_loc\u001b[39m\u001b[34m(self, key)\u001b[39m\n\u001b[32m   3814\u001b[39m     \u001b[38;5;28;01mif\u001b[39;00m \u001b[38;5;28misinstance\u001b[39m(casted_key, \u001b[38;5;28mslice\u001b[39m) \u001b[38;5;129;01mor\u001b[39;00m (\n\u001b[32m   3815\u001b[39m         \u001b[38;5;28misinstance\u001b[39m(casted_key, abc.Iterable)\n\u001b[32m   3816\u001b[39m         \u001b[38;5;129;01mand\u001b[39;00m \u001b[38;5;28many\u001b[39m(\u001b[38;5;28misinstance\u001b[39m(x, \u001b[38;5;28mslice\u001b[39m) \u001b[38;5;28;01mfor\u001b[39;00m x \u001b[38;5;129;01min\u001b[39;00m casted_key)\n\u001b[32m   3817\u001b[39m     ):\n\u001b[32m   3818\u001b[39m         \u001b[38;5;28;01mraise\u001b[39;00m InvalidIndexError(key)\n\u001b[32m-> \u001b[39m\u001b[32m3819\u001b[39m     \u001b[38;5;28;01mraise\u001b[39;00m \u001b[38;5;167;01mKeyError\u001b[39;00m(key) \u001b[38;5;28;01mfrom\u001b[39;00m\u001b[38;5;250m \u001b[39m\u001b[34;01merr\u001b[39;00m\n\u001b[32m   3820\u001b[39m \u001b[38;5;28;01mexcept\u001b[39;00m \u001b[38;5;167;01mTypeError\u001b[39;00m:\n\u001b[32m   3821\u001b[39m     \u001b[38;5;66;03m# If we have a listlike key, _check_indexing_error will raise\u001b[39;00m\n\u001b[32m   3822\u001b[39m     \u001b[38;5;66;03m#  InvalidIndexError. Otherwise we fall through and re-raise\u001b[39;00m\n\u001b[32m   3823\u001b[39m     \u001b[38;5;66;03m#  the TypeError.\u001b[39;00m\n\u001b[32m   3824\u001b[39m     \u001b[38;5;28mself\u001b[39m._check_indexing_error(key)\n",
+      "\u001b[31mKeyError\u001b[39m: 'formula'"
+     ]
+    }
+   ],
+   "source": []
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c95e677c-a8b2-4098-bc54-ab5c9cabd1d5",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

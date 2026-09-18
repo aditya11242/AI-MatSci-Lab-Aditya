@@ -1,0 +1,414 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "2af8e1b4-80c3-4e76-b504-d48a522e6436",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Collecting CBFV\n",
+      "  Downloading CBFV-1.1.0-py3-none-any.whl.metadata (3.3 kB)\n",
+      "Requirement already satisfied: numpy in c:\\users\\atul\\anaconda3\\lib\\site-packages (from CBFV) (2.3.5)\n",
+      "Requirement already satisfied: pandas in c:\\users\\atul\\anaconda3\\lib\\site-packages (from CBFV) (2.3.3)\n",
+      "Requirement already satisfied: tqdm in c:\\users\\atul\\anaconda3\\lib\\site-packages (from CBFV) (4.70.0)\n",
+      "Requirement already satisfied: pytest in c:\\users\\atul\\anaconda3\\lib\\site-packages (from CBFV) (8.4.2)\n",
+      "Requirement already satisfied: python-dateutil>=2.8.2 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pandas->CBFV) (2.9.0.post0)\n",
+      "Requirement already satisfied: pytz>=2020.1 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pandas->CBFV) (2025.2)\n",
+      "Requirement already satisfied: tzdata>=2022.7 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pandas->CBFV) (2025.2)\n",
+      "Requirement already satisfied: six>=1.5 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from python-dateutil>=2.8.2->pandas->CBFV) (1.17.0)\n",
+      "Requirement already satisfied: colorama>=0.4 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pytest->CBFV) (0.4.6)\n",
+      "Requirement already satisfied: iniconfig>=1 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pytest->CBFV) (2.1.0)\n",
+      "Requirement already satisfied: packaging>=20 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pytest->CBFV) (25.0)\n",
+      "Requirement already satisfied: pluggy<2,>=1.5 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pytest->CBFV) (1.5.0)\n",
+      "Requirement already satisfied: pygments>=2.7.2 in c:\\users\\atul\\anaconda3\\lib\\site-packages (from pytest->CBFV) (2.19.2)\n",
+      "Downloading CBFV-1.1.0-py3-none-any.whl (539 kB)\n",
+      "   ---------------------------------------- 0.0/539.2 kB ? eta -:--:--\n",
+      "   ---------------------------------------- 0.0/539.2 kB ? eta -:--:--\n",
+      "   ---------------------------------------- 539.2/539.2 kB 1.4 MB/s  0:00:00\n",
+      "Installing collected packages: CBFV\n",
+      "Successfully installed CBFV-1.1.0\n",
+      "Note: you may need to restart the kernel to use updated packages.\n"
+     ]
+    }
+   ],
+   "source": [
+    "pip install CBFV"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "ef6fbdc1-c56e-4c6a-bf83-4af61ff6e9f5",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import pandas as pd\n",
+    "from CBFV import composition"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "c1932f1a-6234-496f-be7a-b4c5d850aa36",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>formula</th>\n",
+       "      <th>T</th>\n",
+       "      <th>Cp</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1400.0</td>\n",
+       "      <td>134.306</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1300.0</td>\n",
+       "      <td>131.294</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1200.0</td>\n",
+       "      <td>128.072</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1100.0</td>\n",
+       "      <td>124.516</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1000.0</td>\n",
+       "      <td>120.625</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>900.0</td>\n",
+       "      <td>116.190</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>800.0</td>\n",
+       "      <td>111.169</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>723.0</td>\n",
+       "      <td>106.692</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>700.0</td>\n",
+       "      <td>105.228</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>600.0</td>\n",
+       "      <td>98.115</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  formula       T       Cp\n",
+       "0    B2O3  1400.0  134.306\n",
+       "1    B2O3  1300.0  131.294\n",
+       "2    B2O3  1200.0  128.072\n",
+       "3    B2O3  1100.0  124.516\n",
+       "4    B2O3  1000.0  120.625\n",
+       "5    B2O3   900.0  116.190\n",
+       "6    B2O3   800.0  111.169\n",
+       "7    B2O3   723.0  106.692\n",
+       "8    B2O3   700.0  105.228\n",
+       "9    B2O3   600.0   98.115"
+      ]
+     },
+     "execution_count": 6,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df = pd.read_csv('cleaned_cp_dataset.csv')\n",
+    "df.head(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "0718cecd-38d3-4ecf-8cdc-985a6a5984ee",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "df = df.rename(columns={'formula': 'formula', 'Cp': 'target'})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "3fd709f6-24d4-4efb-8075-3f722b453ed2",
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>formula</th>\n",
+       "      <th>T</th>\n",
+       "      <th>target</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1400.0</td>\n",
+       "      <td>134.306</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1300.0</td>\n",
+       "      <td>131.294</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1200.0</td>\n",
+       "      <td>128.072</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1100.0</td>\n",
+       "      <td>124.516</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>1000.0</td>\n",
+       "      <td>120.625</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>5</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>900.0</td>\n",
+       "      <td>116.190</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>6</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>800.0</td>\n",
+       "      <td>111.169</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>7</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>723.0</td>\n",
+       "      <td>106.692</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>8</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>700.0</td>\n",
+       "      <td>105.228</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>9</th>\n",
+       "      <td>B2O3</td>\n",
+       "      <td>600.0</td>\n",
+       "      <td>98.115</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  formula       T   target\n",
+       "0    B2O3  1400.0  134.306\n",
+       "1    B2O3  1300.0  131.294\n",
+       "2    B2O3  1200.0  128.072\n",
+       "3    B2O3  1100.0  124.516\n",
+       "4    B2O3  1000.0  120.625\n",
+       "5    B2O3   900.0  116.190\n",
+       "6    B2O3   800.0  111.169\n",
+       "7    B2O3   723.0  106.692\n",
+       "8    B2O3   700.0  105.228\n",
+       "9    B2O3   600.0   98.115"
+      ]
+     },
+     "execution_count": 10,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "df.head(10)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "id": "91749748-4746-472a-ac92-2385b16516c1",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Processing Input Data: 100%|██████████| 4564/4564 [00:00<00:00, 16707.56it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\tFeaturizing Compositions...\n"
+     ]
+    },
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "Assigning Features...: 100%|██████████| 4564/4564 [00:00<00:00, 11543.45it/s]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\tCreating Pandas Objects...\n",
+      "Feature matrix shape: (4564, 133)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 2. Generate the feature vectors\n",
+    "X, y, formula, skipped = composition.generate_features(\n",
+    "    df, \n",
+    "    elem_prop='magpie', \n",
+    "    drop_duplicates=False, \n",
+    "    extend_features=True\n",
+    ")\n",
+    "# 3. Inspect the Matrix\n",
+    "print(f\"Feature matrix shape: {X.shape}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "id": "fa713fa4-76d6-4e57-af5a-fad694b5b5ef",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# 4. Check for all-zero features and missing values\n",
+    "zero_features = (X == 0).all().sum()\n",
+    "nan_count = X.isna().sum().sum()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "9ee764f9-5588-41b5-8f32-82988ec0e058",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Feature matrix successfully saved and ready for commit.\n"
+     ]
+    }
+   ],
+   "source": [
+    "# 5. Export the validated feature matrix\n",
+    "X.to_csv('cbfv_features.csv', index=False)\n",
+    "print(\"Feature matrix successfully saved and ready for commit.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "8e5545c8-13b4-4898-abb6-92340057ea08",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python [conda env:base] *",
+   "language": "python",
+   "name": "conda-base-py"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
